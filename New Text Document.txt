@@ -1,0 +1,59 @@
+<script type="text/javascript">
+var context;
+var dx= 4;
+var dy=4;
+var y=150;
+var x=10;
+function draw(){
+   context= myCanvas.getContext('2d');
+   // To erase the old cirlces
+   context.clearRect(0,0,300,300);
+   context.beginPath();
+   context.fillStyle="#0000ff";
+
+   // Draws a circle of radius 20 at the 
+   // coordinates (x,y) on the canvas
+   context.arc(x,y,20,0,Math.PI*2,true);
+   context.closePath();
+   context.fill();
+
+   // Boundary Logic
+   if ( x<0 || x>300)
+      dx=-dx;
+   if ( y<0 || y>300)
+      dy=-dy;
+   x+=dx;
+   y+=dy;
+}
+
+// Call the function draw
+// every 10 ms
+setInterval(draw,10); 
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5 Bouncing Ball</title>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+<h1>Bouncing a Ball Around with HTML5 and JavaScript</h1>
+<div id="container">
+   
+<canvas id="myCanvas" 
+            width="300" height="300"></canvas>
+
+<ul id="nav">
+<li><a href=
+  "http://sixrevisions.com/html/bouncing-a-ball-around-with-html5-and-javascript/">
+      View Tutorial</a></li>
+<li><a href="http://sixrevisions.com/html/bouncing-a-ball-around-with-html5-and-javascript/#comments">
+      Post Comment</a></li>
+</ul>
+</div>
+
+</body>
+</html>
